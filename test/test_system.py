@@ -47,10 +47,10 @@ class TestSystem(unittest.TestCase):
         out, err = self.run_system()
         return expected_error in err
 
-    def test_empty_db(self):
-        self.assertSystemError('database file %s corrupt' % (self.db_file))
-
-    def test_create_db(self):
-        cmd = "python node/setup_db.py %s %s" % (self.db_file, self.crypto_opts)
-
-        self.assertEquals(0, subprocess.call(shlex.split(cmd)))
+#    def test_empty_db(self):
+#        self.assertSystemError('database file %s corrupt' % (self.db_file))
+#
+#    def test_create_db(self):
+#        cmd = "python node/setup_db.py %s %s" % (self.db_file, self.crypto_opts)
+#
+#        self.assertEquals(0, subprocess.call(shlex.split(cmd)))
