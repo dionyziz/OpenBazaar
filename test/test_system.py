@@ -1,7 +1,6 @@
 import unittest
 import subprocess
 import shlex
-import sys
 
 
 class TestSystem(unittest.TestCase):
@@ -44,12 +43,12 @@ class TestSystem(unittest.TestCase):
         return (stdout_data, stderr_data)
 
     def assertSystemError(self, expected_error):
-        out, err = self.run_system()
+        _, err = self.run_system()
         return expected_error in err
 
-#    def test_empty_db(self):
-#        self.assertSystemError('database file %s corrupt' % (self.db_file))
-#
+    def test_empty_db(self):
+        self.assertSystemError('database file %s corrupt' % (self.db_file))
+
 #    def test_create_db(self):
 #        cmd = "python node/setup_db.py %s %s" % (self.db_file, self.crypto_opts)
 #
